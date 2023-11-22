@@ -3,12 +3,15 @@ import java.util.List;
 
 public class Colecao {
     private List<Veiculo> colecao = new ArrayList<Veiculo>();
+    private List<Carga> colecaoCarga = new ArrayList<Carga>();
+    private List<Passeio> colecaoPasseio = new ArrayList<Passeio>();
+
     private String cabecalho = """
                   CARROS DA COLEÇÃO -> 2023
             """;
     private String linha = """
-        -------------------------------------
-        """;
+            -------------------------------------
+            """;
 
     public Colecao() {
     }
@@ -19,20 +22,30 @@ public class Colecao {
         System.out.println(veiculo.getCor());
     }
 
-    public void mostrarColecao(){
+    public void addVeiculoColecao(Passeio veiculo) {
+        Passeio novo = veiculo;
+        this.colecaoPasseio.add(novo);
+        System.out.println(veiculo.getCor());
+    }
+
+    public void addVeiculoColecao(Carga veiculo) {
+        Carga novo = veiculo;
+        this.colecaoCarga.add(novo);
+        System.out.println(veiculo.getCor());
+    }
+
+    public void mostrarColecao() {
         System.out.println(linha);
         System.out.println(cabecalho);
         System.out.println(linha);
 
-
-
-        for (Veiculo carro: colecao){
+        for (Veiculo carro : colecao) {
             System.out.println("Marca: " + carro.getMarca());
             System.out.println("Modelo: " + carro.getModelo());
             System.out.println(linha);
         }
 
-        if(colecao.isEmpty()){
+        if (colecao.isEmpty()) {
             System.out.println("VOCÊ AINDA NÃO CADASTROU NENHUM CARRO");
         } else {
             System.out.println("TOTAL DE " + colecao.size() + " CADASTRADOS");

@@ -6,7 +6,8 @@ public class Menu {
             Selecione a opção desejada:
             -------------------------------------
            
-            1. Adicionar um veículo
+            1. Adicionar um veículo Carga
+            2. Adicionar um veículo de Passeio
             2. Verificar os veículos adicionados
             3. Sair
 
@@ -33,13 +34,18 @@ public class Menu {
                 entradaUsuario = entrada.nextInt();
                 switch (entradaUsuario) {
                     case 1:
-                        colecao.addVeiculoColecao(coletarInfVeiculo());
-                        
+                        colecao.addVeiculoColecao(criarVeiculoCarga());;
                         System.out.println("Adicionando veiculo....\n");
                         System.out.println("Veiculo adicionando com sucesso\n");
                         break;
 
                     case 2:
+                        colecao.addVeiculoColecao(criarVeiculoPasseio());
+                        System.out.println("Adicionando veiculo....\n");
+                        System.out.println("Veiculo adicionando com sucesso\n");
+                        break;
+
+                    case 3:
                         colecao.mostrarColecao();
                         break;
                 
@@ -59,20 +65,21 @@ public class Menu {
         String cor = confirmarEntradaUsuario("Digite a cor do veículo");
         Float velocidade = Float.valueOf(confirmarEntradaUsuarioNumero("Digite a velocidade máxima do veículo"));
         Integer rodas = Integer.valueOf(confirmarEntradaUsuarioNumero("Digite a quantidade de rodas do veículo"));
-        Veiculo cadastroVeiculo = new Carga(placa, marca, modelo, cor, velocidade, rodas, null, rodas, rodas);
+        Carga cadastroVeiculo = new Carga(placa, marca, modelo, cor, velocidade, rodas, null, rodas, rodas);
         return cadastroVeiculo;
     }
 
-    private Veiculo coletarInfVeiculo(){
+        private Passeio criarVeiculoPasseio(){
         String placa = confirmarEntradaUsuario("Digite a placa do veículo");
         String marca = confirmarEntradaUsuario("Digite a marca do veículo");
         String modelo = confirmarEntradaUsuario("Digite o modelo do veículo");
         String cor = confirmarEntradaUsuario("Digite a cor do veículo");
         Float velocidade = Float.valueOf(confirmarEntradaUsuarioNumero("Digite a velocidade máxima do veículo"));
         Integer rodas = Integer.valueOf(confirmarEntradaUsuarioNumero("Digite a quantidade de rodas do veículo"));
-        Veiculo cadastroVeiculo = new Veiculo() ;
+        Passeio cadastroVeiculo = new Passeio(placa, marca, modelo, cor, velocidade, rodas, null, rodas);
         return cadastroVeiculo;
     }
+
 
     private String confirmarEntradaUsuario(String menssagem){
         Scanner entrada = new Scanner(System.in); 
